@@ -1,0 +1,61 @@
+{
+	"location":"Central Division",
+	"attendance":{
+		"as_of":"8:00 PM",
+		"total_guests":230,
+		"total_magtatanong":10,
+		"total_brethren":529,
+		"total_attendees":759,
+		"date":"",
+		"by_category":[
+			{
+				"category":"Zone 1",
+				"guests":103,
+				"brethren":301,
+				"subtotal":404
+			},
+            {
+                "category":"Zone 2", 
+                "guests":87,
+                "brethren":153,
+                "subtotal":240
+            },
+            {
+                "category":"Zone 3", 
+                "guests":30,
+                "brethren":60,
+                "subtotal":90
+            },
+            {
+                "category":"Other Divisions", 
+                "guests":10,
+                "brethren":15,
+                "subtotal":25
+            }
+		]
+	},
+	"mga_magtatanong":
+		[
+			{
+				"name":"Juan dela Cruz",
+				"age":57,
+				"religion":"Roman Catholic"
+			},
+            { 
+                "name":"Pedro Penduko",
+                "age":44,
+                "religion":"Born Again Christian"
+            },
+		],
+	"special_guests":
+		[
+			{
+				"name":"Barrack Obama",
+				"position":"President"
+			},
+			{
+				"name":"Benigno Aquino",
+				"position":"President"
+			}
+		]
+}
