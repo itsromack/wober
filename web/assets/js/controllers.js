@@ -1,46 +1,27 @@
 var woberApp = angular.module('woberApp', []);
 
 // Attendance
-woberApp.controller('PlacesAttendaceController', function(){
-	this.places = places;
+woberApp.controller('PlacesAttendanceController', function(){
+	this.places = AttendanceReport.placesAttendance;
 });
 
 // Report
 woberApp.controller('AttendanceSummaryController', function(){
-	this.venue = "Apalit, Pampanga";
-	this.as_of = "7:00 PM";
-	this.guests = 400;
-	this.brethren = 700;
-	this.magtatanong = 2;
-	this.total_attendees = 1100;
+	this.venue = AttendanceReport.details.venue;
+	this.timeAsOf = AttendanceReport.details.timeAsOf;
+	this.guestsCount = AttendanceReport.details.guestsCount;
+	this.brethrenCount = AttendanceReport.details.brethrenCount;
+	this.mgaMagtatanongCount = AttendanceReport.details.mgaMagtatanongCount;
+	this.specialGuestsCount = AttendanceReport.details.specialGuestsCount;
+	this.totalAttendees = AttendanceReport.details.totalAttendees;
 });
 
 // Mga Magtatanong
 woberApp.controller('MgaMagtatanongController', function(){
-	this.persons = [
-		{
-			fullname: "John Doe",
-			age: 30,
-			religion: "Roman Catholic"
-		},
-		{
-			fullname: "Jane Doe",
-			age: 29,
-			religion: "Born Again"
-		}
-	];
+	this.persons = AttendanceReport.mgaMagtatanong;
 });
 
 // Special Guests
 woberApp.controller('SpecialGuestsController', function(){
-	this.persons = [
-		{
-			fullname: "Barrack Obama",
-			position: "President"
-		},
-		{
-			fullname: "Benigno Aquino",
-			position: "President"
-		}
-	];
+	this.persons = AttendanceReport.specialGuests;
 });
