@@ -9,11 +9,12 @@ woberApp.controller('PlacesAttendanceController', function(){
 woberApp.controller('AttendanceSummaryController', function(){
 	this.venue = AttendanceReport.details.venue;
 	this.timeAsOf = AttendanceReport.details.timeAsOf;
-	this.guestsCount = AttendanceReport.details.guestsCount;
-	this.brethrenCount = AttendanceReport.details.brethrenCount;
-	this.mgaMagtatanongCount = AttendanceReport.details.mgaMagtatanongCount;
-	this.specialGuestsCount = AttendanceReport.details.specialGuestsCount;
-	this.totalAttendees = AttendanceReport.details.totalAttendees;
+
+	this.guestsCount = AttendanceReport.details.totalGuests;
+	this.brethrenCount = AttendanceReport.details.totalBrethren;
+	this.specialGuestsCount = AttendanceReport.details.specialGuests;
+	this.mgaMagtatanongCount = AttendanceReport.details.mgaMagtatanong;
+	this.totalAttendees = AttendanceReport.details.overallTotal;
 });
 
 // Mga Magtatanong

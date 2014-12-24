@@ -5,13 +5,8 @@ var AttendanceReport = {
 		this.placesAttendance = placesAttendance;
 		this.mgaMagtatanong = mgaMagtatanong;
 		this.specialGuests = specialGuests;
-		// TODO count guests and brethren
-		// this.details.guestsCount = guestsCount;
-		// this.details.brethrenCount = brethrenCount;
-		this.details.mgaMagtatanongCount = mgaMagtatanong.length;
-		this.details.specialGuestsCount = specialGuests.length;
-		// TODO compute total guests
-		// this.details.totalAttendees = 0;
+		this.details.totals.mgaMagtatanong = mgaMagtatanong.length;
+		this.details.totals.specialGuests = specialGuests.length;
 	},
 	placesAttendance: [],
 	mgaMagtatanong: [],
@@ -19,11 +14,40 @@ var AttendanceReport = {
 	details: {
 		venue: null,
 		timeAsOf: null,
-		guestsCount: null,
-		brethrenCount: null,
-		mgaMagtatanong: null,
-		specialGuests: null,
-		totalAttendees: null
+		totals: {
+			guests: 0,
+			brethren: 0,
+			mgaMagtatanong: 0,
+			specialGuests: 0,
+			overallTotal: 0
+		},
+	},
+	guests: {zone1: 0, zone2: 0, zone3: 0, otherDivision: 0, total: 0},
+	brethren: {zone1: 0, zone2: 0, zone3: 0, otherDivision: 0, total: 0},
+	subtotal: {zone1: 0, zone2: 0, zone3: 0, otherDivision: 0, total: 0},
+	countAttendees: function(){
+		$.each(this.placesAttendance, function(index, data){
+			console.log(data);
+			if (data.zone == 1) {
+				this.guests.zone1 += data.guests;
+				this.brethren.zone1 += data.brethren;
+				this.subtotal.zone1 += data.guests + data.brethren;
+			} else if (data.zone == 2) {
+				this.guests.zone2 += data.guests;
+				this.brethren.zone2 += data.brethren;
+				this.subtotal.zone2 += data.guests + data.brethren;
+			} else if (data.zone == 3) {
+				this.guests.zone3 += data.guests;
+				this.brethren.zone3 += data.brethren;
+				this.subtotal.zone3 += data.guests + data.brethren;
+			} else {
+				if (data.name == "Other Division") {
+					this.guests.otherDivision += data.guests;
+					this.brethren.otherDivision += data.brethren;
+					this.subtotal.otherDivision += data.guests + data.brethren;
+				}
+			}
+		});
 	}
 }
 
@@ -235,5 +259,5 @@ var mgaMagtatanong = [
 ];
 
 AttendanceReport.init(venue, timeAsOf, placesAttendance, mgaMagtatanong, specialGuests);
-
 console.log(AttendanceReport);
+AttendanceReport.countAttendees()
