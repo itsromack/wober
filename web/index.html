@@ -4,23 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Worldwide Bible Exposition Reports</title>
-    <link rel="stylesheet" href="https://woberdev.firebaseapp.com/assets/css/bootstrap.min.css">
+    <title>Worldwide Bible Exposition Attendance Report</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/wober.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="assets/js/lib/angular.min.js"></script>
-    <script src="assets/js/attendance.js"></script>
-    <script src="assets/js/controllers.js"></script>
     </head>
 <body>
+
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="../" class="navbar-brand">Worldwide Bible Exposition Reports</a>
+                <a href="../" class="navbar-brand">Worldwide Bible Exposition Attendance Report</a>
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -29,73 +28,53 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li><a href="#attendance">Attendance</a></li>
+                    <li><a href="#report-summary">Summary</a></li>
                     <li><a href="#mga-magtatanong">Mga Magtatanong</a></li>
                     <li><a href="#special-guests">Special Guests</a></li>
+                    <li><a href="#attendance-details">Attendance</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="bs-docs-section">
-            &nbsp;
-        </div>
+
+        <div class="bs-docs-section">&nbsp;</div>
+        <div class="bs-docs-section">&nbsp;</div>
+        <div class="bs-docs-section">&nbsp;</div>
+
         <div class="bs-docs-section">
             <div class="row">
-                <div class="col-lg-7">
-                    <div class="page-header">
-                        <h1 id="#attendance">Attendance</h1>
-                    </div>
-
-                    <div class="bs-component">
-                        <table class="table table-striped table-hover " ng-controller="PlacesAttendaceController as placesAttendance">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Locales</th>
-                                <th>Zone</th>
-                                <th>Guests</th>
-                                <th>Brethren</th>
-                                <th>Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="locale in placesAttendance.places">
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ locale.name }}</td>
-                                <td><label class="label label-info" ng-show="{{ locale.zone }}">Zone {{ locale.zone }}</label></td>
-                                <td class='guest-attendance'>{{ locale.guests }}</td>
-                                <td class='brethren-attendance'>{{ locale.brethren }}</td>
-                                <td class='subtotal-attendance'>{{ locale.sub_total }}</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
 
                 <div class="col-lg-5">
-                    <div class="bs-docs-section">&nbsp;</div>
-                    <div class="bs-docs-section">&nbsp;</div>
-                    <div class="bs-docs-section">&nbsp;</div>
 
-                    <div class="panel panel-warning">
+                    <!-- START REPORT -->
+                    <a href="#" name="report-summary"></a>
+                    <div class="panel panel-warning" id="#report-summary">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#report-summary">Report Summary</h3>
+                            <h3 class="panel-title">Report Summary</h3>
                         </div>
                         <div class="panel-body" ng-controller="AttendanceSummaryController as report">
-                            <h3>Location: <strong>{{ report.venue }}</strong></h3>
-                            <h3>As of: <strong>{{ report.as_of }}</strong></h3>
-                            <h3>Guests: <strong>{{ report.guests }}</strong></h3>
-                            <h3>Brethren: <strong>{{ report.brethren }}</strong></h3>
-                            <h3>Magtatanong: <strong>{{ report.magtatanong }}</strong></h3>
-                            <h3>Total Attendees: <strong>{{ report.total_attendees }}</strong></h3>
+                            <h4>Location: <strong>{{ report.venue }}</strong></h4>
+                            <h4>As of: <strong>{{ report.timeAsOf }}</strong></h4>
+                            <h4>Guests: <strong>{{ report.guestsCount }}</strong></h4>
+                            <h4>Brethren: <strong>{{ report.brethrenCount }}</strong></h4>
+                            <h4>Magtatanong: <strong>{{ report.mgaMagtatanongCount }}</strong></h4>
+                            <h4>Special Guests: <strong>{{ report.specialGuestsCount }}</strong></h4>
+                            <h4>Total Attendees: <strong>{{ report.overallTotal }}</strong></h4>
+
+                            <span class="label label-info">{{ report.zone1Guests }}</span>
+                            <span class="label label-info">{{ report.zone1Brethren }}</span>
+                            <span class="label label-info">{{ report.zone1Subtotal }}</span>
+
                             <a href="#" class="btn btn-info" id="fetch-latest-report">Fetch Latest Report</a>
                         </div>
                     </div>
+                    <!-- END REPORT -->
 
-                    <div class="panel panel-info">
+                    <!-- START MAGTATANONG -->
+                    <div class="panel panel-info" id="#mga-magtatanong">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#mga-magtatanong">Mga Magtatanong</h3>
+                            <h3 class="panel-title">Mga Magtatanong</h3>
                         </div>
                         <div class="panel-body">
                             <table class="table table-striped table-hover ">
@@ -118,10 +97,13 @@
                             </table>
                         </div>
                     </div>
+                    <!-- END MAGTATANONG -->
 
-                    <div class="panel panel-success">
+                    <!-- START SPECIAL GUESTS -->
+                    <a href="#" name="special-guests"></a>
+                    <div class="panel panel-success" id="#special-guests">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#mga-magtatanong">Special Guests</h3>
+                            <h3 class="panel-title">Special Guests</h3>
                         </div>
                         <div class="panel-body">
                             <table class="table table-striped table-hover ">
@@ -142,7 +124,77 @@
                             </table>
                         </div>
                     </div>
+                    <!-- END MAGTATANONG -->
                         
+                </div>
+
+                <div class="col-lg-7">
+
+                    <!-- START ATTENDANCE -->
+                    <a href="#" name="attendance"></a>
+                    <div class="panel panel-warning" id="#attendance">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Attendance</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover " ng-controller="PlacesAttendanceController as placesAttendance">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Locales</th>
+                                        <th>Zone</th>
+                                        <th>Guests</th>
+                                        <th>Brethren</th>
+                                        <th>Sub-total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="locale in placesAttendance.places">
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ locale.name }}</td>
+                                        <td><label class="label label-info" ng-show="{{ locale.zone }}">Zone {{ locale.zone }}</label></td>
+                                        <td class='guest'>{{ locale.guests }}</td>
+                                        <td class='brethren'>{{ locale.brethren }}</td>
+                                        <td class='subtotal'>{{ locale.subtotal }}</td>
+                                    </tr>
+                                    <tr class="info" ng-controller="Zone1TotalController as zone1">
+                                        <th>&nbsp;</th>
+                                        <th>Zone 1 total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest'><span class="label label-info">{{ zone1.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-info">{{ zone1.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-info">{{ zone1.subtotal }}</span></td>
+                                    </tr>
+                                    <tr class="info" ng-controller="Zone2TotalController as zone2">
+                                        <th>&nbsp;</th>
+                                        <th>Zone 2 total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest'><span class="label label-info">{{ zone2.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-info">{{ zone2.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-info">{{ zone2.subtotal }}</span></td>
+                                    </tr>
+                                    <tr class="info" ng-controller="Zone3TotalController as zone3">
+                                        <th>&nbsp;</th>
+                                        <th>Zone 3 total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest'><span class="label label-info">{{ zone3.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-info">{{ zone3.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-info">{{ zone3.subtotal }}</span></td>
+                                    </tr>
+                                    <tr class="success" ng-controller="OverallTotalController as total">
+                                        <th>&nbsp;</th>
+                                        <th>Total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest'><span class="label label-success">{{ total.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-success">{{ total.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-success">{{ total.subtotal }}</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END ATTENDANCE -->
+
                 </div>
             </div>
         </div>
@@ -150,6 +202,9 @@
 
     <script src="assets/js/lib/jquery.min.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/attendance.js"></script>
+    <script src="assets/js/controllers.js"></script>
 
 </body>
 </html>
