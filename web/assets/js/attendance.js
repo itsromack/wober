@@ -17,6 +17,7 @@ var AttendanceReport = {
 		totals: {
 			guests: 0,
 			brethren: 0,
+			subtotal: 0,
 			mgaMagtatanong: 0,
 			specialGuests: 0,
 			overallTotal: 0
@@ -27,27 +28,33 @@ var AttendanceReport = {
 	subtotal: {zone1: 0, zone2: 0, zone3: 0, otherDivision: 0, total: 0},
 	countAttendees: function(){
 		$.each(this.placesAttendance, function(index, data){
-			console.log(data);
 			if (data.zone == 1) {
-				this.guests.zone1 += data.guests;
-				this.brethren.zone1 += data.brethren;
-				this.subtotal.zone1 += data.guests + data.brethren;
+				AttendanceReport.guests.zone1 += data.guests;
+				AttendanceReport.brethren.zone1 += data.brethren;
+				AttendanceReport.subtotal.zone1 += data.guests + data.brethren;
 			} else if (data.zone == 2) {
-				this.guests.zone2 += data.guests;
-				this.brethren.zone2 += data.brethren;
-				this.subtotal.zone2 += data.guests + data.brethren;
+				AttendanceReport.guests.zone2 += data.guests;
+				AttendanceReport.brethren.zone2 += data.brethren;
+				AttendanceReport.subtotal.zone2 += data.guests + data.brethren;
 			} else if (data.zone == 3) {
-				this.guests.zone3 += data.guests;
-				this.brethren.zone3 += data.brethren;
-				this.subtotal.zone3 += data.guests + data.brethren;
+				AttendanceReport.guests.zone3 += data.guests;
+				AttendanceReport.brethren.zone3 += data.brethren;
+				AttendanceReport.subtotal.zone3 += data.guests + data.brethren;
 			} else {
 				if (data.name == "Other Division") {
-					this.guests.otherDivision += data.guests;
-					this.brethren.otherDivision += data.brethren;
-					this.subtotal.otherDivision += data.guests + data.brethren;
+					AttendanceReport.guests.otherDivision += data.guests;
+					AttendanceReport.brethren.otherDivision += data.brethren;
+					AttendanceReport.subtotal.otherDivision += data.guests + data.brethren;
 				}
 			}
+			AttendanceReport.details.totals.guests += data.guests;
+			AttendanceReport.details.totals.brethren += data.brethren;
+			AttendanceReport.details.totals.subtotal += data.subtotal;
 		});
+		AttendanceReport.details.totals.overallTotal = 
+			AttendanceReport.details.totals.guests
+			+ AttendanceReport.details.totals.brethren
+			+ AttendanceReport.details.totals.subtotal;
 	}
 }
 
@@ -59,18 +66,18 @@ var placesAttendance = [
 		zone: 1,
 	    name: "Group 1",
 	    visible: true,
-	    guests: 0,
-	    brethren: 0,
-	    subtotal: 0
+	    guests: 1,
+	    brethren: 1,
+	    subtotal: 1
 	},
 	{
 		district: venue,
 		zone: 1,
 	    name: "Group 2",
 	    visible: true,
-	    guests: 0,
-	    brethren: 0,
-	    subtotal: 0
+	    guests: 2,
+	    brethren: 2,
+	    subtotal: 2
 	},
 	{
 		district: venue,
@@ -230,9 +237,9 @@ var placesAttendance = [
 		zone: false,
 		name: "Other Division",
 		visible: true,
-	    guests: 0,
-	    brethren: 0,
-	    subtotal: 0
+	    guests: 5,
+	    brethren: 5,
+	    subtotal: 5
 	}
 ];
 var specialGuests = [
@@ -259,5 +266,4 @@ var mgaMagtatanong = [
 ];
 
 AttendanceReport.init(venue, timeAsOf, placesAttendance, mgaMagtatanong, specialGuests);
-console.log(AttendanceReport);
-AttendanceReport.countAttendees()
+AttendanceReport.countAttendees();

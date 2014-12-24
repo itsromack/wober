@@ -60,7 +60,12 @@
                             <h4>Brethren: <strong>{{ report.brethrenCount }}</strong></h4>
                             <h4>Magtatanong: <strong>{{ report.mgaMagtatanongCount }}</strong></h4>
                             <h4>Special Guests: <strong>{{ report.specialGuestsCount }}</strong></h4>
-                            <h4>Total Attendees: <strong>{{ report.totalAttendees }}</strong></h4>
+                            <h4>Total Attendees: <strong>{{ report.overallTotal }}</strong></h4>
+
+                            <span class="label label-info">{{ report.zone1Guests }}</span>
+                            <span class="label label-info">{{ report.zone1Brethren }}</span>
+                            <span class="label label-info">{{ report.zone1Subtotal }}</span>
+
                             <a href="#" class="btn btn-info" id="fetch-latest-report">Fetch Latest Report</a>
                         </div>
                     </div>
@@ -152,37 +157,37 @@
                                         <td class='brethren'>{{ locale.brethren }}</td>
                                         <td class='subtotal'>{{ locale.subtotal }}</td>
                                     </tr>
-                                    <tr class="info" id="total">
+                                    <tr class="info" ng-controller="Zone1TotalController as zone1">
                                         <th>&nbsp;</th>
                                         <th>Zone 1 total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest'><span class="label label-info">[TOTAL ZONE 1 GUESTS]</span></td>
-                                        <td class='brethren'><span class="label label-info">[TOTAL ZONE 1 BRETHREN]</span></td>
-                                        <td class='subtotal'><span class="label label-info">[ZONE 1 TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-info">{{ zone1.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-info">{{ zone1.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-info">{{ zone1.subtotal }}</span></td>
                                     </tr>
-                                    <tr class="info" id="total">
+                                    <tr class="info" ng-controller="Zone2TotalController as zone2">
                                         <th>&nbsp;</th>
                                         <th>Zone 2 total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest'><span class="label label-info">[TOTAL ZONE 2 GUESTS]</span></td>
-                                        <td class='brethren'><span class="label label-info">[TOTAL ZONE 2 BRETHREN]</span></td>
-                                        <td class='subtotal'><span class="label label-info">[ZONE 2 TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-info">{{ zone2.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-info">{{ zone2.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-info">{{ zone2.subtotal }}</span></td>
                                     </tr>
-                                    <tr class="info" id="total">
+                                    <tr class="info" ng-controller="Zone3TotalController as zone3">
                                         <th>&nbsp;</th>
                                         <th>Zone 3 total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest'><span class="label label-info">[TOTAL ZONE 3 GUESTS]</span></td>
-                                        <td class='brethren'><span class="label label-info">[TOTAL ZONE 3 BRETHREN]</span></td>
-                                        <td class='subtotal'><span class="label label-info">[ZONE 3 TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-info">{{ zone3.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-info">{{ zone3.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-info">{{ zone3.subtotal }}</span></td>
                                     </tr>
-                                    <tr class="success" id="total">
+                                    <tr class="success" ng-controller="OverallTotalController as total">
                                         <th>&nbsp;</th>
                                         <th>Total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest'><span class="label label-success">[TOTAL GUESTS]</span></td>
-                                        <td class='brethren'><span class="label label-success">[TOTAL BRETHREN]</span></td>
-                                        <td class='subtotal'><span class="label label-success">[TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-success">{{ total.guests }}</span></td>
+                                        <td class='brethren'><span class="label label-success">{{ total.brethren }}</span></td>
+                                        <td class='subtotal'><span class="label label-success">{{ total.subtotal }}</span></td>
                                     </tr>
                                 </tbody>
                             </table>
