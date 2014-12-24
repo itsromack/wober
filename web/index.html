@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Worldwide Bible Exposition Reports</title>
-    <link rel="stylesheet" href="https://woberdev.firebaseapp.com/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/wober.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -47,9 +48,9 @@
                 <div class="col-lg-7">
 
                     <!-- START ATTENDANCE -->
-                    <div class="panel panel-warning">
+                    <div class="panel panel-warning" id="#attendance">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#attendance">Attendance</h3>
+                            <h3 class="panel-title">Attendance</h3>
                         </div>
                         <div class="panel-body">
                             <table class="table table-striped table-hover " ng-controller="PlacesAttendaceController as placesAttendance">
@@ -68,41 +69,41 @@
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ locale.name }}</td>
                                         <td><label class="label label-info" ng-show="{{ locale.zone }}">Zone {{ locale.zone }}</label></td>
-                                        <td class='guest-attendance'>{{ locale.guests }}</td>
-                                        <td class='brethren-attendance'>{{ locale.brethren }}</td>
-                                        <td class='subtotal-attendance'>{{ locale.sub_total }}</td>
+                                        <td class='guest'>{{ locale.guests }}</td>
+                                        <td class='brethren'>{{ locale.brethren }}</td>
+                                        <td class='subtotal'>{{ locale.subtotal }}</td>
                                     </tr>
                                     <tr class="info" id="total">
                                         <th>&nbsp;</th>
                                         <th>Zone 1 total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest-attendance'><span class="label label-info">[TOTAL ZONE 1 GUESTS]</span></td>
-                                        <td class='brethren-attendance'><span class="label label-info">[TOTAL ZONE 1 BRETHREN]</span></td>
-                                        <td class='subtotal-attendance'><span class="label label-info">[ZONE 1 TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-info">[TOTAL ZONE 1 GUESTS]</span></td>
+                                        <td class='brethren'><span class="label label-info">[TOTAL ZONE 1 BRETHREN]</span></td>
+                                        <td class='subtotal'><span class="label label-info">[ZONE 1 TOTAL]</span></td>
                                     </tr>
                                     <tr class="info" id="total">
                                         <th>&nbsp;</th>
                                         <th>Zone 2 total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest-attendance'><span class="label label-info">[TOTAL ZONE 2 GUESTS]</span></td>
-                                        <td class='brethren-attendance'><span class="label label-info">[TOTAL ZONE 2 BRETHREN]</span></td>
-                                        <td class='subtotal-attendance'><span class="label label-info">[ZONE 2 TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-info">[TOTAL ZONE 2 GUESTS]</span></td>
+                                        <td class='brethren'><span class="label label-info">[TOTAL ZONE 2 BRETHREN]</span></td>
+                                        <td class='subtotal'><span class="label label-info">[ZONE 2 TOTAL]</span></td>
                                     </tr>
                                     <tr class="info" id="total">
                                         <th>&nbsp;</th>
                                         <th>Zone 3 total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest-attendance'><span class="label label-info">[TOTAL ZONE 3 GUESTS]</span></td>
-                                        <td class='brethren-attendance'><span class="label label-info">[TOTAL ZONE 3 BRETHREN]</span></td>
-                                        <td class='subtotal-attendance'><span class="label label-info">[ZONE 3 TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-info">[TOTAL ZONE 3 GUESTS]</span></td>
+                                        <td class='brethren'><span class="label label-info">[TOTAL ZONE 3 BRETHREN]</span></td>
+                                        <td class='subtotal'><span class="label label-info">[ZONE 3 TOTAL]</span></td>
                                     </tr>
                                     <tr class="success" id="total">
                                         <th>&nbsp;</th>
                                         <th>Total</th>
                                         <th>&nbsp;</th>
-                                        <td class='guest-attendance'><span class="label label-success">[TOTAL GUESTS]</span></td>
-                                        <td class='brethren-attendance'><span class="label label-success">[TOTAL BRETHREN]</span></td>
-                                        <td class='subtotal-attendance'><span class="label label-success">[TOTAL]</span></td>
+                                        <td class='guest'><span class="label label-success">[TOTAL GUESTS]</span></td>
+                                        <td class='brethren'><span class="label label-success">[TOTAL BRETHREN]</span></td>
+                                        <td class='subtotal'><span class="label label-success">[TOTAL]</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -115,9 +116,9 @@
                 <div class="col-lg-5">
 
                     <!-- START REPORT -->
-                    <div class="panel panel-warning">
+                    <div class="panel panel-warning" id="#report-summary">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#report-summary">Report Summary</h3>
+                            <h3 class="panel-title">Report Summary</h3>
                         </div>
                         <div class="panel-body" ng-controller="AttendanceSummaryController as report">
                             <h4>Location: <strong>{{ report.venue }}</strong></h4>
@@ -132,9 +133,9 @@
                     <!-- END REPORT -->
 
                     <!-- START MAGTATANONG -->
-                    <div class="panel panel-info">
+                    <div class="panel panel-info" id="#mga-magtatanong">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#mga-magtatanong">Mga Magtatanong</h3>
+                            <h3 class="panel-title">Mga Magtatanong</h3>
                         </div>
                         <div class="panel-body">
                             <table class="table table-striped table-hover ">
@@ -160,9 +161,9 @@
                     <!-- END MAGTATANONG -->
 
                     <!-- START SPECIAL GUESTS -->
-                    <div class="panel panel-success">
+                    <div class="panel panel-success" id="#special-guests">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#special-guests">Special Guests</h3>
+                            <h3 class="panel-title">Special Guests</h3>
                         </div>
                         <div class="panel-body">
                             <table class="table table-striped table-hover ">

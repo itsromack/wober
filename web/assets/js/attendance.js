@@ -6,7 +6,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -15,7 +15,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -24,7 +24,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -33,7 +33,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -42,7 +42,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -51,7 +51,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -60,7 +60,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -69,7 +69,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -78,7 +78,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -87,7 +87,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -96,7 +96,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -105,7 +105,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -114,7 +114,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -123,7 +123,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -132,7 +132,7 @@ var places = [
 	    visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -141,7 +141,7 @@ var places = [
 		visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -150,7 +150,7 @@ var places = [
 		visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -159,7 +159,7 @@ var places = [
 		visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: "Central",
@@ -168,7 +168,7 @@ var places = [
 		visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	},
 	{
 		district: false,
@@ -177,6 +177,6 @@ var places = [
 		visible: true,
 	    guests: 0,
 	    brethren: 0,
-	    sub_total: 0
+	    subtotal: 0
 	}
 ];
