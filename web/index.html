@@ -37,62 +37,101 @@
         </div>
     </div>
     <div class="container">
-        <div class="bs-docs-section">
-            &nbsp;
-        </div>
+
+        <div class="bs-docs-section">&nbsp;</div>
+        <div class="bs-docs-section">&nbsp;</div>
+        <div class="bs-docs-section">&nbsp;</div>
+
         <div class="bs-docs-section">
             <div class="row">
                 <div class="col-lg-7">
-                    <div class="page-header">
-                        <h1 id="#attendance">Attendance</h1>
-                    </div>
 
-                    <div class="bs-component">
-                        <table class="table table-striped table-hover " ng-controller="PlacesAttendaceController as placesAttendance">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Locales</th>
-                                <th>Zone</th>
-                                <th>Guests</th>
-                                <th>Brethren</th>
-                                <th>Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="locale in placesAttendance.places">
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ locale.name }}</td>
-                                <td><label class="label label-info" ng-show="{{ locale.zone }}">Zone {{ locale.zone }}</label></td>
-                                <td class='guest-attendance'>{{ locale.guests }}</td>
-                                <td class='brethren-attendance'>{{ locale.brethren }}</td>
-                                <td class='subtotal-attendance'>{{ locale.sub_total }}</td>
-                            </tr>
-                        </tbody>
-                        </table>
+                    <!-- START ATTENDANCE -->
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" id="#attendance">Attendance</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover " ng-controller="PlacesAttendaceController as placesAttendance">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Locales</th>
+                                        <th>Zone</th>
+                                        <th>Guests</th>
+                                        <th>Brethren</th>
+                                        <th>Sub-total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="locale in placesAttendance.places">
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ locale.name }}</td>
+                                        <td><label class="label label-info" ng-show="{{ locale.zone }}">Zone {{ locale.zone }}</label></td>
+                                        <td class='guest-attendance'>{{ locale.guests }}</td>
+                                        <td class='brethren-attendance'>{{ locale.brethren }}</td>
+                                        <td class='subtotal-attendance'>{{ locale.sub_total }}</td>
+                                    </tr>
+                                    <tr class="info" id="total">
+                                        <th>&nbsp;</th>
+                                        <th>Zone 1 total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest-attendance'><span class="label label-info">[TOTAL ZONE 1 GUESTS]</span></td>
+                                        <td class='brethren-attendance'><span class="label label-info">[TOTAL ZONE 1 BRETHREN]</span></td>
+                                        <td class='subtotal-attendance'><span class="label label-info">[ZONE 1 TOTAL]</span></td>
+                                    </tr>
+                                    <tr class="info" id="total">
+                                        <th>&nbsp;</th>
+                                        <th>Zone 2 total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest-attendance'><span class="label label-info">[TOTAL ZONE 2 GUESTS]</span></td>
+                                        <td class='brethren-attendance'><span class="label label-info">[TOTAL ZONE 2 BRETHREN]</span></td>
+                                        <td class='subtotal-attendance'><span class="label label-info">[ZONE 2 TOTAL]</span></td>
+                                    </tr>
+                                    <tr class="info" id="total">
+                                        <th>&nbsp;</th>
+                                        <th>Zone 3 total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest-attendance'><span class="label label-info">[TOTAL ZONE 3 GUESTS]</span></td>
+                                        <td class='brethren-attendance'><span class="label label-info">[TOTAL ZONE 3 BRETHREN]</span></td>
+                                        <td class='subtotal-attendance'><span class="label label-info">[ZONE 3 TOTAL]</span></td>
+                                    </tr>
+                                    <tr class="success" id="total">
+                                        <th>&nbsp;</th>
+                                        <th>Total</th>
+                                        <th>&nbsp;</th>
+                                        <td class='guest-attendance'><span class="label label-success">[TOTAL GUESTS]</span></td>
+                                        <td class='brethren-attendance'><span class="label label-success">[TOTAL BRETHREN]</span></td>
+                                        <td class='subtotal-attendance'><span class="label label-success">[TOTAL]</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <!-- END ATTENDANCE -->
+
                 </div>
 
                 <div class="col-lg-5">
-                    <div class="bs-docs-section">&nbsp;</div>
-                    <div class="bs-docs-section">&nbsp;</div>
-                    <div class="bs-docs-section">&nbsp;</div>
 
+                    <!-- START REPORT -->
                     <div class="panel panel-warning">
                         <div class="panel-heading">
                             <h3 class="panel-title" id="#report-summary">Report Summary</h3>
                         </div>
                         <div class="panel-body" ng-controller="AttendanceSummaryController as report">
-                            <h3>Location: <strong>{{ report.venue }}</strong></h3>
-                            <h3>As of: <strong>{{ report.as_of }}</strong></h3>
-                            <h3>Guests: <strong>{{ report.guests }}</strong></h3>
-                            <h3>Brethren: <strong>{{ report.brethren }}</strong></h3>
-                            <h3>Magtatanong: <strong>{{ report.magtatanong }}</strong></h3>
-                            <h3>Total Attendees: <strong>{{ report.total_attendees }}</strong></h3>
+                            <h4>Location: <strong>{{ report.venue }}</strong></h4>
+                            <h4>As of: <strong>{{ report.as_of }}</strong></h4>
+                            <h4>Guests: <strong>{{ report.guests }}</strong></h4>
+                            <h4>Brethren: <strong>{{ report.brethren }}</strong></h4>
+                            <h4>Magtatanong: <strong>{{ report.magtatanong }}</strong></h4>
+                            <h4>Total Attendees: <strong>{{ report.total_attendees }}</strong></h4>
                             <a href="#" class="btn btn-info" id="fetch-latest-report">Fetch Latest Report</a>
                         </div>
                     </div>
+                    <!-- END REPORT -->
 
+                    <!-- START MAGTATANONG -->
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title" id="#mga-magtatanong">Mga Magtatanong</h3>
@@ -118,10 +157,12 @@
                             </table>
                         </div>
                     </div>
+                    <!-- END MAGTATANONG -->
 
+                    <!-- START SPECIAL GUESTS -->
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="#mga-magtatanong">Special Guests</h3>
+                            <h3 class="panel-title" id="#special-guests">Special Guests</h3>
                         </div>
                         <div class="panel-body">
                             <table class="table table-striped table-hover ">
@@ -142,6 +183,7 @@
                             </table>
                         </div>
                     </div>
+                    <!-- END MAGTATANONG -->
                         
                 </div>
             </div>
